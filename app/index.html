@@ -23,12 +23,32 @@
     <script src="phone-list/phone-list.component.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
     <script src="phone-detail/phone-detail.component.js"></script>
+    <style type="text/css" media="screen">
+	    #editor {
+		    position: relative;
+		    /**top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;**/
+	    }
+    </style>
   </head>
   <body>
+	  <div id="editor" style="height: 400px;width: 500px;border: double;">
+		  function foo(items) {
+		  var x = "All this is syntax highlighted";
+		  return x;
+		  }
+	  </div>
+	  <script src="ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+	  <script>
+		  var editor = ace.edit("editor");
+		  editor.setTheme("ace/theme/monokai");
+		  editor.getSession().setMode("ace/mode/javascript");
+	  </script>
 
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
-
+	  <div class="view-container">
+		  <div ng-view class="view-frame"></div>
+	  </div>
   </body>
 </html>
